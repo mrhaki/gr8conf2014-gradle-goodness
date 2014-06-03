@@ -1,4 +1,3 @@
-gr8conf2014-gradle-goodness
-===========================
+= Gr8Conf 2014 Gradle Goodness
 
 Code samples for Gradle Goodness talk @ Gr8Conf 2014 Europe

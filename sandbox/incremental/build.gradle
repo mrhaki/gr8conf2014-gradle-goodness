@@ -1,0 +1,14 @@
+version = '1.1'
+
+task genVersionFile {
+	ext {
+		outputFile = file("$projectDir/VERSION")
+	}
+	inputs.property 'version', project.version
+	outputs.file outputFile
+
+	doFirst {
+		outputFile.text = version
+	}
+}
+

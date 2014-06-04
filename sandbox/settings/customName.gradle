@@ -1,0 +1,12 @@
+task helloGr8Conf << {
+	println 'Hello Gr8Conf'
+}
+
+defaultTasks 'helloGr8Conf'
+
+description = """\
+
+Gradle project ${project.name}
+------------------------------
+Gradle version ${gradle.gradleVersion}
+"""

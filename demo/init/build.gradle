@@ -1,0 +1,30 @@
+description = """\
+
+Project name = ${project.name}
+
+Using Gradle version ${gradle.gradleVersion}
+"""
+
+version = new CustomVersion(major: 1, minor: 12)
+
+gradle.taskGraph.whenReady { graph ->
+    version.release = graph.hasTask(release)
+}
+
+task release << {
+    println "Releasing version ${version}"
+}
+
+task run << {
+    println "Running version ${version}"
+}
+
+
+class CustomVersion {
+    int major, minor
+    boolean release
+
+    String toString() {
+        "${major}.${minor}${release ? '' : '-SNAPSHOT'}"
+    }
+}

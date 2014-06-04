@@ -1,0 +1,7 @@
+task goodmorning << { println 'Goodmorning Gr8Conf' }
+
+
+task createWrapper(type: Wrapper) {
+	gradleVersion = '1.10'
+	scriptFile = 'mvn'
+}

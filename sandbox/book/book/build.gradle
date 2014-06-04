@@ -1,0 +1,7 @@
+apply plugin: 'book'
+
+book {
+	title 'Gr8Conf 2014'
+
+	chapter project(':chapter1')
+}

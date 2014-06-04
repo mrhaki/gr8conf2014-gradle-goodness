@@ -1,0 +1,18 @@
+def loadConfiguration() {
+	def env = hasProperty('env') ? getProperty('env') : 'dev'
+	def configFile = file('Config.groovy')
+	def configObj = new ConfigSlurper(env).parse(configFile.toURL())
+
+	ext {
+		environment = env
+		config = configObj
+	}
+}
+
+loadConfiguration()
+
+task showProperties << {
+	println "Running in ${environment} mode"
+
+	println "serverName = ${project.config.serverName}"
+}

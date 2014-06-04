@@ -1,0 +1,7 @@
+description = """\
+
+Project name = ${project.name}
+
+Using Gradle version ${gradle.gradleVersion}
+"""
+

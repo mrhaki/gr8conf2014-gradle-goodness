@@ -1,0 +1,14 @@
+apply plugin: 'java'
+
+
+task runJava(type:JavaExec, dependsOn: 'classes') {
+	main = 'com.mrhaki.gr8conf.SampleApp'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+task execJava << {
+	javaexec {
+			main = 'com.mrhaki.gr8conf.SampleApp'
+			classpath = sourceSets.main.runtimeClasspath
+	}
+}

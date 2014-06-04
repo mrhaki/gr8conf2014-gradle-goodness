@@ -1,0 +1,14 @@
+def username
+def password
+
+task ask << {
+	def console = System.console()
+	if (console) {
+			username = console.readLine('> Enter your username')
+			password = console.readPassword('> Enter your password')
+	} else { println 'no console'}
+}
+
+task showInfo(dependsOn: 'ask') << {
+	println "Hello $username, you entered the following password $password"
+}

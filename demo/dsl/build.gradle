@@ -1,0 +1,8 @@
+apply plugin: 'java'
+apply from: 'commondep.gradle'
+
+commonDependencies {
+	useSpock()
+}
+
+println extraProps

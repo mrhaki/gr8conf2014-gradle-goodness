@@ -1,0 +1,13 @@
+import org.apache.tools.ant.filters.*
+
+task copyProperties(type: Copy) {
+	from 'src/main/resources/'
+	into "$buildDir"
+
+	filter(ReplaceTokens, tokens: [appName: project.name])
+
+	expand(appName: project.name)
+
+	rename('(.*).properties$', '$1.gr8conf')
+
+}

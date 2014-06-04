@@ -1,0 +1,11 @@
+task createWrapper(type: Wrapper)  {
+	// Customize
+	//gradleVersion = '1.8'
+	scriptFile = 'mvn'
+}
+
+description = """\
+Gradle project ${project.name}
+------------------------------
+Gradle version ${gradle.gradleVersion}
+"""

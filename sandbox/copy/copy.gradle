@@ -1,0 +1,14 @@
+import org.apache.tools.ant.filters.*
+
+task appProp(type: Copy) {
+	from 'src/main/resources'
+	into "$buildDir"
+
+	filter(ReplaceTokens, tokens: [appName: project.name, date: new Date()])
+
+	expand()
+
+	//rename(file -> 'application.file')
+
+	rename('(.*).properties$', '$1.props')
+}

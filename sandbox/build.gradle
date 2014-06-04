@@ -1,0 +1,22 @@
+version = new ProjectVersion(major: 1, minor: 3)
+
+gradle.taskGraph.whenReady { graph ->
+	version.release = graph.hasTask(release)
+}
+
+task release << {
+	println "Releasing app $version"
+}
+
+task run << {
+	println "Running app $version"
+}
+
+class ProjectVersion {
+	int major, minor
+	boolean release
+
+	String toString() {
+		"${major}.${minor}.${release ? '' : '-SNAPSHOT'}"
+	}
+}

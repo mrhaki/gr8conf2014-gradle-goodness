@@ -1,0 +1,25 @@
+class CommonDependencies {
+
+	final Project project
+
+	CommonDependencies(Project project) {
+		this.project = project
+
+		project.repositories {
+			jcenter()
+		}
+	}
+
+	void useSpock() {
+		project.dependencies {
+			testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+		}
+	}
+}
+
+project.extensions.create('commonDependencies', CommonDependencies, project)
+
+
+ext {
+	extraProps = 'Gr8Conf rules'
+}

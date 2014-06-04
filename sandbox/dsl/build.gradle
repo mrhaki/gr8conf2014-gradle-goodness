@@ -1,0 +1,6 @@
+apply plugin: 'java'
+apply from: 'commondeps.gradle'
+
+commonDependencies {
+	useSpock()
+}

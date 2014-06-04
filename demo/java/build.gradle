@@ -1,0 +1,27 @@
+apply plugin: 'groovy'
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+	testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+}
+
+test {
+	testLogging {
+		exceptionFormat = 'full'
+	}
+}
+
+task runApp(type: JavaExec) {
+	main = 'gr8conf.SampleApp'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+task execApp << {
+	javaexec {
+		main = 'gr8conf.SampleApp'
+		classpath = sourceSets.main.runtimeClasspath
+	}
+}

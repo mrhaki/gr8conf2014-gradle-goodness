@@ -1,0 +1,32 @@
+apply plugin: 'base'
+
+configurations { cxf }
+
+repositories.jcenter()
+
+ext {
+    // CXF version.
+    cxfVersion = '2.6.2'
+
+    // Artifacts for CXF dependency.
+    cxfArtifacts = [
+        'cxf-tools-wsdlto-frontend-jaxws', 
+        'cxf-tools-wsdlto-databinding-jaxb', 
+        'cxf-tools-common', 
+        'cxf-tools-wsdlto-core'
+    ]
+}
+
+dependencies {
+    // Assign CXF dependencies to configuration.
+    cxfArtifacts.each { artifact ->
+        cxf "org.apache.cxf:$artifact:$cxfVersion"
+    }
+}
+
+task wsdl2java(type: JavaExec) {
+	main = 'org.apache.cxf.tools.wsdlto.WSDLToJava'
+	classpath = configurations.cxf
+
+	args '-help'
+}

@@ -1,0 +1,22 @@
+apply plugin: 'java'
+
+
+task otherTask << { println name }
+//otherTask.group = 'New tasks'
+
+configure(otherTask) {
+	group = 'Verification'
+	description = 'Short description'
+}
+
+5.times {
+	task "task$it" << { println name }	
+}
+
+//otherTask.dependsOn task1
+
+def numberedTasks = tasks.findAll { it.name.startsWith('task') }
+
+otherTask.dependsOn { tasks.findAll { it.name.startsWith('task') } }
+
+task task6 << { println name }

@@ -1,0 +1,3 @@
+rootProject.name = 'SampleGradle'
+
+//rootProject.buildFileName = "${rootProject.name}.gradle"

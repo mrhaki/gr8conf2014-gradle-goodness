@@ -1,3 +1,7 @@
 = Gr8Conf 2014 Gradle Goodness
 
 Code samples for Gradle Goodness talk @ Gr8Conf 2014 Europe
+
+You can find the live coding files in the directory +demo+.
+
+The directory +sandbox+ contains more samples that couldn't be shown during the session.
